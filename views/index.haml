@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %link{ :href => "/styles/fonts.css", :rel => "stylesheet", :type => "text/css" }
+    %link{ :href => "/styles/chart.css", :rel => "stylesheet", :type => "text/css" }
+    %link{ :rel => "shortcut icon", :href => "http://24.media.tumblr.com/avatar_b25e54a5feb5_16.png" }
+    %meta{ :content => "Sam MacCutchan", :name => "author" }
+    %title Sam Edward Wilson MacCutchan - sewm.org
+
+  %body
+    %h1 Sam Edward Wilson MacCutchan
+    
+    %form{ :action => "daily_update", :method => "post"}
+      %table
+        %tr
+          %th
+            %label{ :for => "date" } Date:
+          %th
+            %label{ :for => "price" } Price: 
+          %th
+            %label{ :for => "units" } Units:
+        %tr
+          %td
+            %input{ :id => "date", :name => "date", :type =>"date" }
+          %td
+            %input{ :type => "number", :name => "price", :min => "0", :step => "0.0001", :id => "price" }
+          %td
+            %input{ :type => "number", :name => "units", :min => "0", :step => "0.001", :id =>  "units" }
+        %tr
+          %td
+            %input{ :type => "submit" }

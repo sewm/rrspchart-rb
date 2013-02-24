@@ -1,0 +1,56 @@
+
+@font-face {
+  font-family: 'Ostrich Sans Regular';
+  font-style: normal;
+  src:  url('http://sewm.org/styles/fonts/ostrich-regular-webfont.ttf') format('truetype'),
+       url('http://sewm.org/styles/fonts/ostrich-regular-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-regular-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-regular-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Ostrich Sans Black';
+  font-style: normal;
+  src: url('http://sewm.org/styles/fonts/ostrich-black-webfont.ttf') format('truetype'),
+       url('http://sewm.org/styles/fonts/ostrich-black-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-black-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-black-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Ostrich Sans Bold';
+  font-style: normal;
+  src: url('http://sewm.org/styles/fonts/ostrich-bold-webfont.ttf') format('truetype')
+       url('http://sewm.org/styles/fonts/ostrich-bold-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-bold-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-bold-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Ostrich Sans Dashed';
+  font-style: normal;
+  src: url('http://sewm.org/styles/fonts/ostrich-dashed-webfont.ttf') format('truetype'),
+       url('http://sewm.org/styles/fonts/ostrich-dashed-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-dashed-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-dashed-webfont.svg') format('svg');
+}
+
+
+@font-face {
+  font-family: 'Ostrich Sans Light';
+  font-style: normal;
+  src: url('http://sewm.org/styles/fonts/ostrich-light-webfont.ttf') format('truetype'),
+       url('http://sewm.org/styles/fonts/ostrich-light-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-light-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-light-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'Ostrich Sans Rounded';
+  font-style: normal;
+  src: url('http://sewm.org/styles/fonts/ostrich-rounded-webfont.ttf') format('truetype'),
+       url('http://sewm.org/styles/fonts/ostrich-rounded-webfont.woff') format('woff'),
+       url('http://sewm.org/styles/fonts/ostrich-rounded-webfont.eot') format('embedded-opentype'),
+       url('http://sewm.org/styles/fonts/ostrich-rounded-webfont.svg') format('svg');
+}
+

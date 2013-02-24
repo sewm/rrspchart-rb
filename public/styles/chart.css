@@ -1,0 +1,41 @@
+/*
+ * chart.css 
+ * Sam Maccutchan
+ * 2013-02-22
+ *
+ */
+ 
+ 
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: Ostrich Sans Regular, Helvetica, Arial, sans;
+  color: black;
+  background-color: grey;
+  padding: .25em;
+}
+
+h1 {
+  font-size: 24pt;
+  margin-top: auto;
+  padding: .3em;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: .025em;
+}
+
+h2 {
+  font-size: 24pt;
+  margin: 1% 25%;
+}
+
+table {
+  margin: auto;
+}
+
+th { text-align: left; }
