@@ -1,0 +1,3 @@
+# Ignore the data file so that private data
+# doesn't end up in the repo.
+data.csv
