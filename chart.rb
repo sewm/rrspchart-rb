@@ -41,7 +41,7 @@ post '/daily_update' do
   @date = params[:date]
   @price = params[:price]
   @units = params[:units]
-  @value = (@price.to_f * @units.to_f).round(4)
+  @value = (@price.to_f * @units.to_f).round(2)
   
   CSV.open("./data.csv", "a") do |csv|
     csv << [@date, @price, @units, @value]
