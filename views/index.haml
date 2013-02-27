@@ -30,9 +30,27 @@
           %td
             %input{ :type => "submit" }
 
+    %canvas{ :id => "chart", :width => "#{ @prices.length }", :height => "200" }
+        
     %p= @first_date.strftime("%F")
     %p= @last_date.strftime("%F")
     %p Max price is #{ @max_price }
+    %p Min price is #{ @min_price }
     %p Max units are #{ @max_units }
+    %p Min units are #{ @min_units }
     %p Max value is #{ @max_value }
+    %p Min value is #{ @min_value }
     
+    %script
+      var c=document.getElementById("chart");
+      var ctx=c.getContext("2d");
+      ctx.fillStyle="#FF0000";
+      - (0...@prices.length).each do |i|
+        ctx.fillRect(#{ (i + 1) },#{ 200 - @prices[i].to_i },2,2);
+      ctx.fillStyle="#00FF00"
+      - (0...@units.length).each do |i|
+        ctx.fillRect(#{ (i + 1) },#{ 200 - (@units[i].to_i / 10) },2,2);
+      ctx.fillStyle="#0000FF"
+      - (0...@values.length).each do |i|
+        ctx.fillRect(#{ (i + 1) },#{ 200 - (@values[i].to_i / 100) },2,2);
+      
