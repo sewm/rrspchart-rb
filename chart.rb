@@ -33,9 +33,16 @@ end
 get '/' do
   @first_date = first_date
   @last_date = last_date
+  
   @max_price = prices.max
+  @min_price = prices.min
+  
   @max_units = units.max
+  @min_units = units.min
+  
   @max_value = values.max
+  @min_value = values.min
+  
   
   # For populating the form with default values for units.
   @current_units = units[units.length - 1]
@@ -52,6 +59,10 @@ get '/' do
   else
     @current_time = @current_time - (1440 * 60) # Subtract one day
   end
+  
+  @prices = prices
+  @units = units
+  @values = values
   
   haml :index, :format => :html5
 end
