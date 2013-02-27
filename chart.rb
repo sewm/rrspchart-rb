@@ -10,18 +10,21 @@ require 'CSV'
 
 data = CSV.read("./data.csv")
 
-first_date = Time.now
-last_date = Time.mktime(1900,1,1)
+first_date = Time.now               # Set the first date to today, likely to be newer than the first date in the data. 
+last_date = Time.mktime(1900,1,1)   # Set the last date so early it is not likely to be in the data
 prices = Array.new(0)
 units = Array.new(0)
 values = Array.new(0)
 
 data.each do |d|
+  # Read in the date from each data record and convert it into an actual date instead of
+  # a string.
   current_date = d[0].split("-")
   current_date = Time.mktime(current_date[0],current_date[1],current_date[2])
   first_date = current_date if current_date < first_date
   last_date = current_date if current_date > last_date
   
+  # Pop the values of price, unit and value onto the arrays that store them.
   prices.push(d[1])
   units.push(d[2])
   values.push(d[3])
