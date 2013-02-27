@@ -21,9 +21,9 @@
             %label{ :for => "price" } Price: 
         %tr
           %td
-            %input{ :id => "date", :name => "date", :type =>"date" }
+            %input{ :id => "date", :name => "date", :type =>"date", :value => @current_time.strftime("%F") }
           %td
-            %input{ :type => "number", :name => "units", :min => "0", :step => "0.001", :id =>  "units" }
+            %input{ :type => "number", :name => "units", :min => "0", :step => "0.001", :id =>  "units", :value => @current_units }
           %td
             %input{ :type => "number", :name => "price", :min => "0", :step => "0.0001", :id => "price" }         
         %tr
