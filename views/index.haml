@@ -46,13 +46,33 @@
     %script
       var c=document.getElementById("chart");
       var ctx=c.getContext("2d");
+      ctx.beginPath();
       ctx.fillStyle="#FF0000";
-      - (0...@prices.length).each do |i|
-        ctx.fillRect(#{ (i + 1) },#{ 1000 - (@prices[i].to_i * 10) },1,1);
-      ctx.fillStyle="#00FF00"
-      - (0...@units.length).each do |i|
-        ctx.fillRect(#{ (i + 1) },#{ 1000 - @units[i].to_i  },2,2);
-      ctx.fillStyle="#0000FF"
-      - (0...@values.length).each do |i|
-        ctx.fillRect(#{ (i + 1) },#{ 1000 - (@values[i].to_i / 10 - 200) },2,2);
-      
+      ctx.strokeStyle="#FF0000";
+      - (1...@prices.length).each do |i|
+        // The lines on the chart are drawn from the current data point to the previous one
+        // To scale the price data to the chart we subtract the data point from 500
+        // then multiply by two
+        ctx.moveTo(#{ i },#{ (500 - (@prices[i].to_i * 10)) * 2 });           // Go to the current data point
+        ctx.lineTo(#{ i - 1 }, #{ (500 - (@prices[i - 1].to_i * 10)) * 2 });  // Draw a line to the previous data point
+        ctx.stroke();                                                         // Put the line on screen
+        //ctx.fillRect(#{ (i + 1) },#{ 1000 - (@prices[i].to_i * 10) },1,1);
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.fillStyle="#00FF00";
+      ctx.strokeStyle="#00FF00";
+      - (1...@units.length).each do |i|
+        ctx.moveTo(#{ i },#{ 1000 - @units[i].to_i });            // Go to the current data point
+        ctx.lineTo(#{ i - 1 }, #{ 1000 - (@units[i - 1].to_i) }); // Draw a line to the previous data point
+        ctx.stroke();                                             // Put the line on screen
+        //ctx.fillRect(#{ (i + 1) },#{ 1000 - @units[i].to_i },2,2);
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.fillStyle="#0000FF";
+      ctx.strokeStyle="#0000FF";
+      - (1...@values.length).each do |i|
+        ctx.moveTo(#{ i }, #{ 1000 - (@values[i].to_i / 10 - 200) });         // Go to the current data point
+        ctx.lineTo(#{ i - 1 }, #{ 1000 - (@values[i - 1].to_i / 10 - 200) }); // Draw a line to the previous data point
+        ctx.stroke();                                                         // Put the line on screen
+        //ctx.fillRect(#{ (i + 1) },#{ 1000 - (@values[i].to_i / 10 - 200) },2,2);
+      ctx.closePath();
