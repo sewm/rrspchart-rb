@@ -25,9 +25,9 @@ data.each do |d|
   last_date = current_date if current_date > last_date
   
   # Pop the values of price, unit and value onto the arrays that store them.
-  prices.push(d[1])
-  units.push(d[2])
-  values.push(d[3])
+  prices.push(d[1].to_f)
+  units.push(d[2].to_f)
+  values.push(d[3].to_f)
 end
 
 get '/' do
