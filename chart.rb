@@ -77,5 +77,20 @@ post '/daily_update' do
     csv << [@date, @price, @units, @value]
   end
   
-  haml :daily_update, :format => :html5
+  # Add the new values to the arrays.
+  prices.push(@price.to_f)
+  units.push(@units.to_f)
+  values.push(@value.to_f)
+  
+  # Convert the inputted date to a time from string
+  @date = @date.split("-")
+  @date = Time.mktime(@date[0],@date[1],@date[2])
+  
+  first_date = @date if @date < first_date
+  last_date = @date if @date > last_date
+  
+  redirect to('/')
+  
+  # use for bug testing
+  ## haml :daily_update, :format => :html5
 end 
