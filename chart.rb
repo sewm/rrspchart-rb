@@ -8,6 +8,13 @@ require 'sinatra'
 require 'haml'
 require 'CSV'
 
+def timeFromString(input_time)
+  current_date = input_time.split("-")
+  current_date = Time.mktime(current_date[0],current_date[1],current_date[2])
+  
+  return current_date
+end
+
 data = CSV.read("./data.csv")
 
 first_date = Time.now               # Set the first date to today, likely to be newer than the first date in the data. 
@@ -19,8 +26,7 @@ values = Array.new(0)
 data.each do |d|
   # Read in the date from each data record and convert it into an actual date instead of
   # a string.
-  current_date = d[0].split("-")
-  current_date = Time.mktime(current_date[0],current_date[1],current_date[2])
+  current_date = timeFromString(d[0])
   first_date = current_date if current_date < first_date
   last_date = current_date if current_date > last_date
   
@@ -83,9 +89,10 @@ post '/daily_update' do
   values.push(@value.to_f)
   
   # Convert the inputted date to a time from string
-  @date = @date.split("-")
-  @date = Time.mktime(@date[0],@date[1],@date[2])
+  @date = timeFromString(@date)
   
+  # Add the date to the begining or end of the data if it
+  # is an older or more recent date.
   first_date = @date if @date < first_date
   last_date = @date if @date > last_date
   
