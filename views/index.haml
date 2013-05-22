@@ -30,10 +30,10 @@
           %td
             %input{ :type => "submit" }
 
-    %canvas{ :id => "chart", :width => "#{ @prices.length }", :height => "1000" }
+    %canvas{ :id => "chart", :width => "800", :height => "800" }
     
     %p
-        
+    
     %p= @first_date.strftime("%F")
     %p= @last_date.strftime("%F")
     %p Max price is #{ @max_price }
@@ -42,6 +42,7 @@
     %p Min units are #{ @min_units }
     %p Max value is #{ @max_value }
     %p Min value is #{ @min_value }
+    %p Number of data points is #{ @prices.length }
     
     %script
       var c=document.getElementById("chart");
@@ -62,15 +63,15 @@
       ctx.fillStyle="#00FF00";
       ctx.strokeStyle="#00FF00";
       - (1...@units.length).each do |i|
-        ctx.moveTo(#{ i },#{ 1000 - @units[i].to_i });            // Go to the current data point
-        ctx.lineTo(#{ i - 1 }, #{ 1000 - (@units[i - 1].to_i) }); // Draw a line to the previous data point        
+        ctx.moveTo(#{ i },#{ 800 - @units[i].to_i });            // Go to the current data point
+        ctx.lineTo(#{ i - 1 }, #{ 800 - (@units[i - 1].to_i) }); // Draw a line to the previous data point        
       ctx.stroke();                                             // Put the line on screen
       ctx.closePath();
       ctx.beginPath();
       ctx.fillStyle="#0000FF";
       ctx.strokeStyle="#0000FF";
       - (1...@values.length).each do |i|
-        ctx.moveTo(#{ i }, #{ 1000 - (@values[i] / 10 - 200) });         // Go to the current data point
-        ctx.lineTo(#{ i - 1 }, #{ 1000 - (@values[i - 1] / 10 - 200) }); // Draw a line to the previous data point        
+        ctx.moveTo(#{ i }, #{ 800 - (@values[i] / 10 - 300) });         // Go to the current data point
+        ctx.lineTo(#{ i - 1 }, #{ 800 - (@values[i - 1] / 10 - 300) }); // Draw a line to the previous data point        
       ctx.stroke();                                                         // Put the line on screen
       ctx.closePath();
