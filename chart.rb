@@ -19,6 +19,7 @@ data = CSV.read("./data.csv")
 
 first_date = Time.now               # Set the first date to today, likely to be newer than the first date in the data. 
 last_date = Time.mktime(1900,1,1)   # Set the last date so early it is not likely to be in the data
+dates = Array.new(0)
 prices = Array.new(0)
 units = Array.new(0)
 values = Array.new(0)
@@ -30,10 +31,14 @@ data.each do |d|
   first_date = current_date if current_date < first_date
   last_date = current_date if current_date > last_date
   
-  # Pop the values of price, unit and value onto the arrays that store them.
+  # Push the current date onto the array that stores all dates
+  dates.push(current_date)
+  
+  # Push the values of price, unit and value onto the arrays that store them.
   prices.push(d[1].to_f)
   units.push(d[2].to_f)
   values.push(d[3].to_f)
+  
 end
 
 get '/' do
@@ -66,6 +71,7 @@ get '/' do
     @current_time = @current_time - (1440 * 60) # Subtract one day
   end
   
+  @dates = dates
   @prices = prices
   @units = units
   @values = values

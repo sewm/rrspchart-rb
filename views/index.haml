@@ -32,7 +32,20 @@
 
     %canvas{ :id => "chart", :width => "800", :height => "800" }
     
-    %p
+    %h2 Most Recent Values
+    
+    %table
+      %tr
+        %th Date
+        %th Units
+        %th Price
+        %th Value
+      - ((@data_points - 5)...@data_points).each do |i|
+        %tr
+          %td= @dates[i].strftime("%F")
+          %td= '%0.3f' % @units[i]
+          %td= '%0.4f' % @prices[i]
+          %td= '%0.2f' % @values[i]
     
     %p= @first_date.strftime("%F")
     %p= @last_date.strftime("%F")
