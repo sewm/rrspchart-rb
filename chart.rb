@@ -70,6 +70,8 @@ get '/' do
   @units = units
   @values = values
   
+  @data_points = @prices.length
+  
   haml :index, :format => :html5
 end
 
